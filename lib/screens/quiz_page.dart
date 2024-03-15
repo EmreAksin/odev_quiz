@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:odev_quiz/data/question_data.dart';
+import 'package:odev_quiz/model/question.dart';
 import 'package:odev_quiz/screens/homepage.dart';
 
 class QuizPage extends StatefulWidget {
@@ -11,9 +13,24 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   var sayi = 2;
 
+  // Soruları ve cevapları QuestionDatadan çekiyoruz
+  final QuestionData questionsData = QuestionData();
+
+  // Listeden çekekeceğimiz sorunun dizesini takip etmek için değişken oluşturuyoruz
+  int questionCount = 0;
+
+  // soruyu ilerletmek için bir state fonksiyonu yazıyoruz
+  void _nextQuestion() {
+    setState(() {
+      // değişken değeri arttıkça soru değişecek
+      questionCount++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    if (sayi == 1) {
+    if (questionCount < questionsData.questionList.length - 1) {
+      Question currentQuestion = questionsData.questionList[questionCount];
       return Scaffold(
         backgroundColor: Colors.grey.shade900,
         appBar: AppBar(
@@ -27,7 +44,7 @@ class _QuizPageState extends State<QuizPage> {
               Column(
                 children: [
                   Text(
-                    "Soru 1 overflow, and those that follow, will not be rendered. Otherwise, it will be shown with the given overflow option.",
+                    currentQuestion.question,
                     style:
                         TextStyle(color: Colors.orange.shade700, fontSize: 24),
                   ),
@@ -36,33 +53,33 @@ class _QuizPageState extends State<QuizPage> {
               Column(
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: _nextQuestion,
                     child: Text(
-                      "a) Cevap 1",
+                      currentQuestion.answers[0],
                       style: TextStyle(
                           color: Colors.orange.shade700, fontSize: 18),
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: _nextQuestion,
                     child: Text(
-                      "a) Cevap 2",
+                      currentQuestion.answers[1],
                       style: TextStyle(
                           color: Colors.orange.shade700, fontSize: 18),
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: _nextQuestion,
                     child: Text(
-                      "a) Cevap 3",
+                      currentQuestion.answers[2],
                       style: TextStyle(
                           color: Colors.orange.shade700, fontSize: 18),
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: _nextQuestion,
                     child: Text(
-                      "a) Cevap 4",
+                      currentQuestion.answers[3],
                       style: TextStyle(
                           color: Colors.orange.shade700, fontSize: 18),
                     ),
