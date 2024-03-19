@@ -11,7 +11,7 @@ class QuestionData {
         answers: ["cevap1", "cevap2", "cevap3", "cevap4"]);
     var q2 = Question(
         question: "Soru iki",
-        answers: ["cevap1", "cevap2", "cevap3", "cevap4"]);
+        answers: ["cevap1", "cevap2", "cevap3", "cevap4", "cevap5"]);
     var q3 = Question(
         question: "Soru üç", answers: ["cevap1", "cevap2", "cevap3", "cevap4"]);
     var q4 = Question(

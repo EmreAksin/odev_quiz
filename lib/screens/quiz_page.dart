@@ -51,40 +51,16 @@ class _QuizPageState extends State<QuizPage> {
                 ],
               ),
               Column(
-                children: [
-                  ElevatedButton(
+                children: currentQuestion.answers.map((answer) {
+                  return ElevatedButton(
                     onPressed: _nextQuestion,
                     child: Text(
-                      currentQuestion.answers[0],
+                      answer,
                       style: TextStyle(
                           color: Colors.orange.shade700, fontSize: 18),
                     ),
-                  ),
-                  ElevatedButton(
-                    onPressed: _nextQuestion,
-                    child: Text(
-                      currentQuestion.answers[1],
-                      style: TextStyle(
-                          color: Colors.orange.shade700, fontSize: 18),
-                    ),
-                  ),
-                  ElevatedButton(
-                    onPressed: _nextQuestion,
-                    child: Text(
-                      currentQuestion.answers[2],
-                      style: TextStyle(
-                          color: Colors.orange.shade700, fontSize: 18),
-                    ),
-                  ),
-                  ElevatedButton(
-                    onPressed: _nextQuestion,
-                    child: Text(
-                      currentQuestion.answers[3],
-                      style: TextStyle(
-                          color: Colors.orange.shade700, fontSize: 18),
-                    ),
-                  ),
-                ],
+                  );
+                }).toList(),
               )
             ],
           ),
