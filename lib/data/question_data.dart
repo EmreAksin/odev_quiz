@@ -1,24 +1,34 @@
 import 'package:odev_quiz/model/question.dart';
 
 class QuestionData {
-  // içinde question nesnesi olacak bir liste oluşturuyoruz
   var questionList = <Question>[];
 
   QuestionData() {
-    // nesneleri oluşturuyoruz
     var q1 = Question(
-        question: "Soru bir",
-        answers: ["cevap1", "cevap2", "cevap3", "cevap4"]);
+      question:
+          "Dart dilinde değişken tanımlamak için kullanılan anahtar kelime nedir?",
+      answers: ["var", "int", "final", "String"],
+      correctAnswerIndex: 0,
+    );
     var q2 = Question(
-        question: "Soru iki",
-        answers: ["cevap1", "cevap2", "cevap3", "cevap4", "cevap5"]);
+      question:
+          "Dart dilinde hangi operatör kullanılarak eşitlik kontrolü yapılır?",
+      answers: ["==", "=", "===", "!="],
+      correctAnswerIndex: 0,
+    );
     var q3 = Question(
-        question: "Soru üç", answers: ["cevap1", "cevap2", "cevap3", "cevap4"]);
+      question:
+          "Dart dilinde hangi veri tipi birden fazla değeri içeren bir liste oluşturur?",
+      answers: ["Map", "Set", "List", "Array"],
+      correctAnswerIndex: 2,
+    );
     var q4 = Question(
-        question: "Soru dört",
-        answers: ["cevap1", "cevap2", "cevap3", "cevap4"]);
+      question:
+          "Dart dilinde hangi anahtar kelimeyi kullanarak bir fonksiyon tanımlanır?",
+      answers: ["function", "def", "void", "fun"],
+      correctAnswerIndex: 2,
+    );
 
-    // Oluşturduğumuz soru nesnelerini questionList listesine ekliyoruz.
     questionList.addAll([q1, q2, q3, q4]);
   }
 }
